@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs | Rab Fitness Gym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">RAB Fitness Gym</div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li class="dropdown">
+  <a href="index.html" class="nav-link">Home</a>
+<span class="drop-toggle">▾</span>
+  <ul class="dropdown-content">
+    <li><a href="index.html#facilities">Facilities</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+  </ul>
+</li>
+      <li><a href="shop.html">Gym Fits</a></li>
+      <li><a href="contact.html">Join</a></li>
+      <li><a href="about.html">About</a></li>
+         <li class="dropdown">
+  <a href="trainers.html" class="nav-link">Trainer</a>
+<span class="drop-toggle">▾</span>
+  <ul class="dropdown-content">
+    <li><a href="programs.html" class="active">Programs</a></li>
+  </ul>
+</li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </nav>
+
+<!-- HERO -->
+<section class="programs-hero">
+  <div class="overlay">
+    <h1>Our Training Programs</h1>
+    <p>Designed to push limits, transform bodies & build discipline</p>
+  </div>
+</section>
+
+<!-- PROGRAMS GRID -->
+<section class="programs-section">
+  <div class="programs-grid">
+
+    <div class="program-card">
+      <img src="images/strength.jpg">
+      <h3>Strength Training</h3>
+      <p>Build raw power, improve lifts & increase overall strength.</p>
+      <span>Level: Beginner – Advanced</span>
+      <a href="https://wa.me/254742184483?text=Hello%20Rab%20Fitness%20Gym,%20I%20would%20like%20to%20join%20the%20Strength%20Training%20program."
+   class="program-btn" target="_blank">
+   Join Program
+</a>
+    </div>
+
+     <div class="program-card">
+      <img src="images/swimmingg.jpg">
+      <h3>Swimming Lessons</h3>
+      <p>Build Confidence.Build Skill</p>
+      <span>Level: Beginner – Advanced</span>
+      <a href="https://wa.me/254742184483?text=Hello%20Rab%20Fitness%20Gym,%20I%20would%20like%20to%20join%20the%20Swimming%20Training%20program."
+   class="program-btn" target="_blank">
+   Join Program
+</a>
+    </div>
+
+    <div class="program-card">
+      <img src="images/wouts.jpeg">
+      <h3>Fat Loss Program</h3>
+      <p>Burn fat, boost metabolism & reshape your body.</p>
+      <span>Level: Beginner</span>
+     <a href="https://wa.me/254742184483?text=Hello%20Rab%20Fitness%20Gym,%20I%20would%20like%20to%20join%20the%20Fat%20Loss%20Training%20program."
+   class="program-btn" target="_blank">
+   Join Program
+</a>
+    </div>
+
+    <div class="program-card">
+      <img src="images/muscle.jpg">
+      <h3>Muscle Building</h3>
+      <p>Hypertrophy-focused training with proper recovery.</p>
+      <span>Level: Intermediate</span>
+      <a href="https://wa.me/254742184483?text=Hello%20Rab%20Fitness%20Gym,%20I%20would%20like%20to%20join%20the%20Muscle%20Building%20Training%20program."
+   class="program-btn" target="_blank">
+   Join Program
+</a>
+    </div>
+
+    <div class="program-card">
+      <img src="images/boxing.jpg">
+      <h3>HIIT & Conditioning</h3>
+      <p>Explosive workouts for endurance & athletic performance.</p>
+      <span>Level: Advanced</span>
+      <a href="https://wa.me/254742184483?text=Hello%20Rab%20Fitness%20Gym,%20I%20would%20like%20to%20join%20the%20HIIT%20Conditioning%20program."
+   class="program-btn" target="_blank">
+   Join Program
+</a>
+    </div>
+
+    <div class="program-card">
+      <img src="images/yoga.jpeg">
+      <h3>Yoga and meditation</h3>
+      <p>"As we settle into the lotus position, let's form the Gyan Mudra with our fingers to channel our inner wisdom and focus our breath 🌸".</p>
+      <span>Level: Beginner</span>
+      <a href="https://wa.me/254742184483?text=Hello%20Rab%20Fitness%20Gym,%20I%20would%20like%20to%20join%20the%20HIIT%20Conditioning%20program."
+   class="program-btn" target="_blank">
+   Join Program
+</a>
+    </div>
+
+  </div>
+</section>
+<footer class="footer">
+    <div class="footer-content">
+      <h3>RAB Fitness Gym</h3>
+      <p>Train elite. Live strong.</p>
+
+   <div class="socials">  
+    <a href="mailto:owenicardi254@gmail.com">Email</a>  
+    <a href="https://instagram.com/owenicardi17" target="_blank" >Instagram</a>  
+    <a href="https://wa.me/254742184483" target="_blank">WhatsApp</a>  
+  </div>
+
+      <span class="copyright">
+        © 2026 RAB Fitness Gym • Built with discipline 💪
+      </span>
+    </div>
+  </footer>
+<script>
+     document.addEventListener("DOMContentLoaded", () => {
+
+  /* MOBILE MENU */
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  }
+
+  /* FACILITIES MODAL */
+  const modal = document.getElementById("facilitiesModal");
+  const openModalBtn = document.getElementById("openFacilitiesModal");
+  const closeModalBtn = document.getElementById("closeModal");
+
+  if (openModalBtn && modal) {
+    openModalBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.style.display = "block";
+    });
+  }
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  
+  const toggles = document.querySelectorAll(".drop-toggle");
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      toggle.parentElement.classList.toggle("open");
+    });
+  });
+
+  const navItems = navLinks.querySelectorAll("a");
+
+navItems.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
+});
+const dropdownLinks = document.querySelectorAll(".dropdown-content a");
+
+dropdownLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
+});
+
+});
+</script>
+</body>
+</html>

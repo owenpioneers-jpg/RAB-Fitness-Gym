@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | RAB Fitness Gym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo">RAB Fitness Gym</div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <ul class="nav-links" id="navLinks">
+          <li class="dropdown">
+  <a href="index.html" class="nav-link">Home</a>
+<span class="drop-toggle">▾</span>
+  <ul class="dropdown-content">
+    <li><a href="index.html#facilities">Facilities</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+  </ul>
+</li>
+      <li><a href="shop.html">Gym Fits</a></li>
+      <li><a href="contact.html" class="active">Join</a></li>
+      <li><a href="about.html">About</a></li>
+         <li class="dropdown">
+  <a href="trainers.html" class="nav-link">Trainer</a>
+<span class="drop-toggle">▾</span>
+  <ul class="dropdown-content">
+    <li><a href="programs.html">Programs</a></li>
+  </ul>
+</li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </nav>
+
+<h1 class="shop-title">Your Cart</h1>
+
+<section class="cart" id="cartItems"></section>
+
+<div class="cart-summary">
+  <h3>Total: KES <span id="cartTotal">0</span></h3>
+  <button onclick="checkout()">Checkout via WhatsApp</button>
+  <button onclick="clearCart()">Clear Cart</button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+  /* MOBILE MENU */
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  }
+
+  /* FACILITIES MODAL */
+  const modal = document.getElementById("facilitiesModal");
+  const openModalBtn = document.getElementById("openFacilitiesModal");
+  const closeModalBtn = document.getElementById("closeModal");
+
+  if (openModalBtn && modal) {
+    openModalBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.style.display = "block";
+    });
+  }
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  
+  const toggles = document.querySelectorAll(".drop-toggle");
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      toggle.parentElement.classList.toggle("open");
+    });
+  });
+
+  const navItems = navLinks.querySelectorAll("a");
+
+navItems.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
+});
+const dropdownLinks = document.querySelectorAll(".dropdown-content a");
+
+dropdownLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
+});
+
+});
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function renderCart() {
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = "<p>Your cart is empty.</p>";
+    cartTotal.innerText = "0";
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    total += item.price * item.qty;
+
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.img}">
+        <div>
+          <h4>${item.name}</h4>
+          <p>KES ${item.price}</p>
+          <p>Qty: ${item.qty}</p>
+          <button onclick="removeItem(${index})">Remove</button>
+        </div>
+      </div>
+    `;
+  });
+
+  cartTotal.innerText = total.toLocaleString();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function clearCart() {
+  localStorage.removeItem("cart");
+  cart = [];
+  renderCart();
+}
+
+function checkout() {
+  let msg = "Hello RAB Fitness Gym%0A%0AI would like to order:%0A";
+  let total = 0;
+
+  cart.forEach(item => {
+    msg += `• ${item.name} (x${item.qty}) - KES ${item.price}%0A`;
+    total += item.price * item.qty;
+  });
+
+  msg += `%0ATotal: KES ${total.toLocaleString()}`;
+  window.open(`https://wa.me/254742184483?text=${msg}`);
+}
+
+renderCart();
+</script>
+<footer class="footer">
+    <div class="footer-content">
+      <h3>RAB Fitness Gym</h3>
+      <p>Train elite. Live strong.</p>
+      <span class="copyright">
+        © 2026 RAB Fitness Gym • Built with discipline 💪
+      </span>
+    </div>
+  </footer>
+</body>
+</html>

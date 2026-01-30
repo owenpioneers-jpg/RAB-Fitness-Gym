@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAB Fitness Gym | Premium Luxury Training</title>
+
+  
+  <link rel="stylesheet" href="style.css">
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+  <nav class="navbar">
+    <div class="logo">RAB Fitness Gym</div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li class="dropdown">
+  <a href="index.html" class="nav-link">Home</a>
+<span class="drop-toggle">▾</span>
+  <ul class="dropdown-content">
+    <li><a href="index.html#facilities">Facilities</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+  </ul>
+</li>
+      <li><a href="shop.html">Gym Fits</a></li>
+      <li><a href="contact.html">Join</a></li>
+      <li><a href="about.html">About</a></li>
+         <li class="dropdown">
+  <a href="trainers.html" class="nav-link">Trainer</a>
+<span class="drop-toggle">▾</span>
+  <ul class="dropdown-content">
+    <li><a href="programs.html">Programs</a></li>
+  </ul>
+</li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </nav>
+<div class="nav-overlay" id="navOverlay"></div>
+  
+  <section class="hero">
+    <div class="hero-content">
+      <h1>RAB Fitness Gym</h1>
+      <p>Luxury training • Elite equipment • Real results</p>
+
+      <div class="hero-buttons">
+        <a href="contact.html" class="btn primary">Join Now</a>
+        <a href="#reviews" class="btn outline">Client Reviews</a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="facilities" id="facilities">
+    <h2>Our Facilities</h2>
+
+    <div class="facility-grid">
+      <div class="facility-card">🏋️‍♂️ Modern Equipment</div>
+      <div class="facility-card">🏊 Swimming Pool</div>
+      <div class="facility-card">🔥 Sauna & Steam</div>
+      <div class="facility-card">🚿 Luxury Locker Rooms</div>
+      <div class="facility-card">🛀 Modern Washrooms</div>
+    </div>
+  </section>
+
+<ul class="facilitiesModal">
+  <li><a href="#" id="openFacilitiesModal">Facilities</a></li>
+</ul>
+
+
+<div id="facilitiesModal" class="modal">
+  <div class="modal-content fade-in">
+    <span id="closeModal" class="close-btn">&times;</span>
+    <h2>Our Premium Facilities</h2>
+    <div class="facility-grid">
+      <div class="facility-card">
+        <img src="images/fac2.jpeg" alt="Gym Equipment">
+        <h3>State-of-the-Art Gym</h3>
+      </div>
+      <div class="facility-card">
+        <img src="images/fac4.jpeg" alt="Gym Equipment">
+        <h3>State-of-the-Art Gym</h3>
+      </div>
+      <div class="facility-card">
+        <img src="images/fac1.jpeg" alt="Gym Equipment">
+        <h3>State-of-the-Art Gym</h3>
+      </div>
+      <div class="facility-card">
+        <img src="images/wouts2.jpeg" alt="Gym Equipment">
+        <h3>State-of-the-Art Gym</h3>
+      </div>
+      <div class="facility-card">
+        <img src="images/sauna.jpeg" alt="Sauna">
+        <h3>Relaxing Sauna</h3>
+      </div>
+      <div class="facility-card">
+        <img src="images/lockerrooms.jpeg" alt="Locker Room">
+        <h3>Modern Locker Room</h3>
+      </div>
+      <div class="facility-card">
+        <img src="images/swimmingpool.jpeg" alt="Swimming Pool">
+        <h3>Swimming Pool</h3>
+      </div>
+      <div class="facility-card">
+        <img src="images/bathroom.jpeg" alt="Bathrooms">
+        <h3>Modern Washrooms</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <section class="reviews" id="reviews">
+    <h2>What Our Clients Say</h2>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <p>
+          “RAB Fitness is not just a gym — it’s a lifestyle.
+          Everything feels premium from equipment to environment.”
+        </p>
+        <h4>Brian M.</h4>
+      </div>
+
+      <div class="review-card">
+        <p>
+          “Clean, disciplined, and motivating. I’ve been more consistent
+          here than any other gym.”
+        </p>
+        <h4>Lolly A.</h4>
+      </div>
+
+      <div class="review-card">
+        <p>
+          “Luxury gym with serious results. Worth every shilling and good at motivating people working out.”
+        </p>
+        <h4>Ostine N.</h4>
+      </div>
+
+      <div class="review-card">
+        <p>
+          “I have enjoyed exercising with Annuel and the group at Rab Fitness Gym! Very clean and top in gyms anywhere!
+        </p>
+        <h4> Starlone O.</h4>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <h3>RAB Fitness Gym</h3>
+      <p>Train elite. Live strong.</p>
+
+   <div class="socials">  
+    <a href="mailto:owenicardi254@gmail.com">Email</a>  
+    <a href="https://instagram.com/owenicardi17" target="_blank" >Instagram</a>  
+    <a href="https://wa.me/254742184483" target="_blank">WhatsApp</a>  
+  </div>
+
+      <span class="copyright">
+        © 2026 RAB Fitness Gym • Built with discipline 💪
+      </span>
+    </div>
+  </footer>
+
+  
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  }
+
+  
+  const modal = document.getElementById("facilitiesModal");
+  const openModalBtn = document.getElementById("openFacilitiesModal");
+  const closeModalBtn = document.getElementById("closeModal");
+
+  if (openModalBtn && modal) {
+    openModalBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.style.display = "block";
+    });
+  }
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  
+  const toggles = document.querySelectorAll(".drop-toggle");
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      toggle.parentElement.classList.toggle("open");
+    });
+  });
+
+  const navItems = navLinks.querySelectorAll("a");
+
+navItems.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
+});
+const dropdownLinks = document.querySelectorAll(".dropdown-content a");
+
+dropdownLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
+});
+
+});
+</script>
+</body>
+</html>

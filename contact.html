@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join RAB Fitness Gym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+      <nav class="navbar">
+    <div class="logo">RAB Fitness Gym</div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <ul class="nav-links" id="navLinks">
+          <li class="dropdown">
+  <a href="index.html" class="nav-link">Home</a>
+<span class="drop-toggle">▾</span>
+  <ul class="dropdown-content">
+    <li><a href="index.html#facilities">Facilities</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+  </ul>
+</li>
+      <li><a href="shop.html">Gym Fits</a></li>
+      <li><a href="contact.html" class="active">Join</a></li>
+      <li><a href="about.html">About</a></li>
+         <li class="dropdown">
+  <a href="trainers.html" class="nav-link">Trainer</a>
+<span class="drop-toggle">▾</span>
+  <ul class="dropdown-content">
+    <li><a href="programs.html">Programs</a></li>
+  </ul>
+</li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </nav>
+
+<section class="join-hero">
+  <div class="join-overlay">
+    <h1>Join RAB Fitness Gym</h1>
+    <p>Train. Transform. Dominate.</p>
+  </div>
+</section>
+
+<section class="join-container">
+
+  <!-- JOIN FORM -->
+  <form id="joinForm" class="join-form">
+    <h2>Membership Registration</h2>
+
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+
+    <select id="membership" required>
+      <option value="">Select Membership</option>
+      <option value="Monthly">Monthly</option>
+      <option value="Quarterly">Quarterly</option>
+      <option value="Yearly">Yearly</option>
+    </select>
+
+    <textarea id="message" placeholder="Any health notes or goals? (optional)"></textarea>
+
+    <button type="submit">Join via WhatsApp</button>
+  </form>
+
+  
+  <div class="gym-contact">
+    <h3>Gym Contact</h3>
+    <p><strong>Location:</strong> Nairobi, Kenya</p>
+    <p><strong>Phone:</strong> +254 742 184 483</p>
+    <p><strong>Email:</strong> icardiowen254@gmail.com</p>
+    <p><strong>Hours:</strong> Mon – Sun | 5AM – 9PM</p>
+  </div>
+
+</section>
+ <footer class="footer">
+    <div class="footer-content">
+      <h3>RAB Fitness Gym</h3>
+      <p>Train elite. Live strong.</p>
+
+      <span class="copyright">
+        © 2026 RAB Fitness Gym • Built with discipline 💪
+      </span>
+    </div>
+  </footer>
+
+<script>
+   document.addEventListener("DOMContentLoaded", () => {
+
+  /* MOBILE MENU */
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  }
+
+  /* FACILITIES MODAL */
+  const modal = document.getElementById("facilitiesModal");
+  const openModalBtn = document.getElementById("openFacilitiesModal");
+  const closeModalBtn = document.getElementById("closeModal");
+
+  if (openModalBtn && modal) {
+    openModalBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.style.display = "block";
+    });
+  }
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  
+  const toggles = document.querySelectorAll(".drop-toggle");
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      toggle.parentElement.classList.toggle("open");
+    });
+  });
+
+  const navItems = navLinks.querySelectorAll("a");
+
+navItems.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
+});
+const dropdownLinks = document.querySelectorAll(".dropdown-content a");
+
+dropdownLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
+  });
+});
+
+});
+document.getElementById("joinForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const membership = document.getElementById("membership").value;
+  const message = document.getElementById("message").value;
+
+  const whatsappMessage =
+    `Hello RAB Fitness Gym%0A%0A` +
+    `I would like to join the gym.%0A%0A` +
+    `Name: ${name}%0A` +
+    `Phone: ${phone}%0A` +
+    `Membership: ${membership}%0A` +
+    `Notes: ${message || "N/A"}`;
+
+  window.open(
+    `https://wa.me/254742184483?text=${whatsappMessage}`,
+    "_blank"
+  );
+});
+</script>
+
+</body>
+</html>
